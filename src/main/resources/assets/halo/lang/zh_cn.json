@@ -1,0 +1,13 @@
+{
+  "category.halo.config": "光环",
+  "key.halo.open_config": "打开光环配置界面",
+  "screen.config.title": "光环配置",
+  "screen.config.subtitle": "更改光环类型",
+  "screen.config.type": "光环类型",
+  "screen.config.typeTooltip": "选择下一个光环.",
+  "screen.config.angleOffset": "角度偏移",
+  "screen.config.angleOffsetTooltip": "垂直方向角度的偏移,如果你希望光环在你的头后而不是头顶,适当调整该选项.",
+  "screen.config.heightOffset": "高度偏移",
+  "screen.config.heightOffsetTooltip": "高度偏移,该选项允许你调整光环离你头顶的距离.",
+  "message.halo.animReloadNotice": "重载动画需要一段时间,请稍等! 如果动画无法正常运行,请重启客户端."
+}

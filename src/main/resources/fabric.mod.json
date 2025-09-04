@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "halo",
+  "version": "1.0.0",
+  "name": "halo",
+  "description": "A minecraft mod adding blue archive students' halos to the game, like cosmetics.",
+  "authors": ["Stars", "SpicyWolf"],
+  "contact": {},
+  "license": "GPLv3",
+  "icon": "assets/halo/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "cn.stars.halo.client.HaloDataGenerator"
+    ],
+    "client": [
+      "cn.stars.halo.client.HaloClient"
+    ],
+    "main": [
+      "cn.stars.halo.Halo"
+    ]
+  },
+  "mixins": [
+    "halo.mixins.json",
+    {
+      "config": "halo.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "fabric": "*",
+    "minecraft": "1.21.8"
+  }
+}
