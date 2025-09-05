@@ -38,10 +38,15 @@ public class HaloConfigScreen extends Screen {
             String newType = HaloConfig.HALOS.get(index);
             HaloConfig.setHaloType(newType);
             button.setMessage(Text.translatable("screen.config.type").append(": " + HaloConfig.getHaloType()));
-        }).dimensions(x, y - 40, buttonWidth, buttonHeight).tooltip(Tooltip.of(Text.translatable("screen.config.typeTooltip"))).build();
-        toggleButton.setTooltipDelay(Duration.ofSeconds(1));
+        }).dimensions(x, y - 60, buttonWidth, buttonHeight).tooltip(Tooltip.of(Text.translatable("screen.config.typeTooltip"))).build();
 
-        SliderWidget angleOffsetSlider = new SliderWidget(x, y - 10, buttonWidth, buttonHeight,Text.translatable("screen.config.angleOffset").append(": " + HaloConfig.getAngleOffset()), (double) (HaloConfig.getAngleOffset() + 90) / 180) {
+        ButtonWidget firstPersonVisibleButton = ButtonWidget.builder(Text.translatable("screen.config.firstPersonVisibility").append(": " + HaloConfig.isFirstPersonVisible()), button -> {
+            HaloConfig.setFirstPersonVisible(!HaloConfig.isFirstPersonVisible());
+            button.setMessage(Text.translatable("screen.config.firstPersonVisibility").append(": " + HaloConfig.isFirstPersonVisible()));
+        }).dimensions(x, y - 30, buttonWidth, buttonHeight).tooltip(Tooltip.of(Text.translatable("screen.config.firstPersonVisibilityTooltip"))).build();
+        firstPersonVisibleButton.setTooltipDelay(Duration.ofSeconds(1));
+
+        SliderWidget angleOffsetSlider = new SliderWidget(x, y, buttonWidth, buttonHeight, Text.translatable("screen.config.angleOffset").append(": " + HaloConfig.getAngleOffset()), (double) (HaloConfig.getAngleOffset() + 90) / 180) {
             @Override
             protected void updateMessage() {
                 int actualOffset = (int) (this.value * 180) - 90;
@@ -57,7 +62,7 @@ public class HaloConfigScreen extends Screen {
         angleOffsetSlider.setTooltip(Tooltip.of(Text.translatable("screen.config.angleOffsetTooltip")));
         angleOffsetSlider.setTooltipDelay(Duration.ofSeconds(1));
 
-        SliderWidget heightOffsetSlider = new SliderWidget(x, y + 20, buttonWidth, buttonHeight,Text.translatable("screen.config.heightOffset").append(": " + String.format("%.2f", HaloConfig.getHeightOffset())), (HaloConfig.getHeightOffset() + 4) / 8) {
+        SliderWidget heightOffsetSlider = new SliderWidget(x, y + 30, buttonWidth, buttonHeight, Text.translatable("screen.config.heightOffset").append(": " + String.format("%.2f", HaloConfig.getHeightOffset())), (HaloConfig.getHeightOffset() + 4) / 8) {
             @Override
             protected void updateMessage() {
                 double actualOffset = this.value * 8 - 4;
@@ -75,7 +80,7 @@ public class HaloConfigScreen extends Screen {
 
         TextWidget subtitleText = new TextWidget(Text.translatable("screen.config.subtitle"), textRenderer);
         subtitleText.setX(width / 2 - textRenderer.getWidth(Text.translatable("screen.config.subtitle")) / 2);
-        subtitleText.setY(y - 60);
+        subtitleText.setY(y - 80);
 
         Text credit = Text.of("§b§lHalo §f" + HaloCore.version + " | Made with ❤ by Stars | Model by SpicyWolf");
         TextWidget creditText = new TextWidget(credit, textRenderer);
@@ -83,6 +88,7 @@ public class HaloConfigScreen extends Screen {
         creditText.setY(height - 10);
 
         this.addDrawableChild(toggleButton);
+        this.addDrawableChild(firstPersonVisibleButton);
         this.addDrawableChild(angleOffsetSlider);
         this.addDrawableChild(heightOffsetSlider);
         this.addDrawableChild(subtitleText);

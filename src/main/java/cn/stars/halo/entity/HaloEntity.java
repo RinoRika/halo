@@ -30,6 +30,7 @@ public class HaloEntity extends PathAwareEntity implements GeoAnimatable {
         this.noClip = true;
         this.setInvulnerable(true);
         this.setNoGravity(true);
+        setGlowing(true);
         trackedPlayer = MinecraftClient.getInstance().player;
     }
 

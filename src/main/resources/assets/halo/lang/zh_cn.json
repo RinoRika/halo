@@ -6,8 +6,10 @@
   "screen.config.type": "光环类型",
   "screen.config.typeTooltip": "选择下一个光环.",
   "screen.config.angleOffset": "角度偏移",
-  "screen.config.angleOffsetTooltip": "垂直方向角度的偏移,如果你希望光环在你的头后而不是头顶,适当调整该选项.",
+  "screen.config.angleOffsetTooltip": "修改垂直方向角度的偏移,如果你希望光环在你的头后而不是头顶,适当调整该选项.",
   "screen.config.heightOffset": "高度偏移",
-  "screen.config.heightOffsetTooltip": "高度偏移,该选项允许你调整光环离你头顶的距离.",
+  "screen.config.heightOffsetTooltip": "修改高度偏移,该选项允许你调整光环离你头顶的距离.",
+  "screen.config.firstPersonVisibility": "第一人称可见性",
+  "screen.config.firstPersonVisibilityTooltip": "修改光环是否能在第一人称被看见.",
   "message.halo.animReloadNotice": "重载动画需要一段时间,请稍等! 如果动画无法正常运行,请重启客户端."
 }

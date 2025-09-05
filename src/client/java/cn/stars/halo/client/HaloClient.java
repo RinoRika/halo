@@ -48,13 +48,16 @@ public class HaloClient implements ClientModInitializer {
                 client.setScreen(new HaloConfigScreen(client.currentScreen));
             }
 
+            if (HaloConfig.checkIfNone()) {
+                lastHalo = HaloConfig.getHaloType();
+                this.removeHalo();
+                return;
+            }
+
             ClientPlayerEntity player = client.player;
             if (player == null) {
                 // 当玩家不存在时删除光环实体
-                if (clientHalo != null) {
-                    clientHalo.discard();
-                    clientHalo = null;
-                }
+                this.removeHalo();
                 return;
             }
 
@@ -68,17 +71,23 @@ public class HaloClient implements ClientModInitializer {
                 if (!lastHalo.equals(HaloConfig.getHaloType())) {
                     HaloCore.logger.info("检测到光环改变,将重新生成光环实体");
                     HaloCore.showMessageTranslated("message.halo.animReloadNotice");
-                    clientHalo.discard();
-                    clientHalo = null;
                     lastHalo = HaloConfig.getHaloType();
+                    this.removeHalo();
                     return;
                 }
                 // 更新光环实体位置
                 // 踩坑: 不要用updatePositionAndAngles(),他会重置实体的碰撞箱,导致玩家无法交互
-                clientHalo.setPos(player.getX(), player.getEyeY() - 1.5f + HaloConfig.getHeightOffset(), player.getZ());
+                clientHalo.setPos(player.getX(), player.getEyeY() - 0.2f, player.getZ());
                 clientHalo.setAngles(player.getYaw(), player.getPitch());
                 clientHalo.setVelocity(player.getVelocity());
             }
         });
+    }
+
+    public void removeHalo() {
+        if (clientHalo != null) {
+            clientHalo.discard();
+            clientHalo = null;
+        }
     }
 }

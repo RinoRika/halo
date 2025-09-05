@@ -3,6 +3,7 @@ package cn.stars.halo.renderer;
 import cn.stars.halo.config.HaloConfig;
 import cn.stars.halo.entity.HaloEntity;
 import cn.stars.halo.model.HaloModel;
+import cn.stars.halo.util.RenderUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.Frustum;
@@ -32,14 +33,25 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
 
     @Override
     public void render(R renderState, MatrixStack poseStack, VertexConsumerProvider bufferSource, int packedLight) {
+        if (HaloConfig.checkIfNone()) return;
+
         MinecraftClient minecraft = MinecraftClient.getInstance();
         ClientPlayerEntity player = minecraft.player;
 
         if (player != null) {
             // 光环跟随玩家视角旋转
             float playerYaw = player.getYaw();
+            poseStack.translate(0.0D, -24 / 16.0, 0.0D);
             poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-playerYaw));
-            poseStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(HaloConfig.getAngleOffset()));
+
+            RenderUtil.doXRotationWithCompensation(poseStack, 1.8f, 1.5f, HaloConfig.getAngleOffset());
+
+            poseStack.translate(0.0D, HaloConfig.getHeightOffset() / 16.0, 0.0D);
+
+            // 梓的光环在立绘里看着像是竖着的,但是实际上是和别的人一样的
+        /*    if (HaloConfig.getHaloType().equals("azusa")) {
+                RenderUtil.doXRotationWithCompensation(poseStack, 2.5f, 2.25f, -90);
+            } */
         }
 
         super.render(renderState, poseStack, bufferSource, packedLight);
@@ -48,6 +60,7 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
     @Override
     public boolean shouldRender(HaloEntity entity, Frustum frustum, double x, double y, double z) {
         PlayerEntity player = entity.trackedPlayer;
-        return !player.isInvisible() && !player.isDead() && !player.isSpectator() && !player.isSleeping();
+        return !player.isInvisible() && !player.isDead() && !player.isSpectator() && !player.isSleeping() && (HaloConfig.isFirstPersonVisible() || MinecraftClient.getInstance().gameRenderer.getCamera().isThirdPerson());
     }
+
 }

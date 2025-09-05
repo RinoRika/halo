@@ -24,7 +24,7 @@
 					"name": "mainHalo",
 					"parent": "armorHead",
 					"pivot": [0, 24, 0],
-					"rotation": [-25, 0, 0]
+					"rotation": [0, 0, 0]
 				},
 				{
 					"name": "1",

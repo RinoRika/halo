@@ -24,7 +24,7 @@
 					"name": "main",
 					"parent": "armorHead",
 					"pivot": [0, 24, 0],
-					"rotation": [-30, 0, 0]
+					"rotation": [0, 0, 0]
 				},
 				{
 					"name": "core",

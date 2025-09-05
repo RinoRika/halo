@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class HaloCore {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
-    public static String version = "v1.0.0";
+    public static String version = "v1.1.0";
     public static Logger logger = LogManager.getLogger("Halo");
     public static final String prefix = "§f[§b§lHalo§f] ";
 

@@ -16,7 +16,7 @@ public class HaloConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("halo_config.json");
     // 所有支持的角色名
-    private static final String[] HALOS_ARRAY = new String[]{"aris", "aru", "azusa", "hanako", "hasumi", "hifumi", "hina", "hoshino", "iroha", "izuna", "koharu", "mari", "midori", "mika", "miku", "momoi", "noa", "shiroko", "tsurugi", "yuuka"};
+    private static final String[] HALOS_ARRAY = new String[]{"none", "aris", "aru", "azusa", "hanako", "hasumi", "hifumi", "hina", "hoshino", "iroha", "izuna", "koharu", "mari", "midori", "mika", "miku", "momoi", "noa", "shiroko", "tsurugi", "yuuka"};
     public static final ArrayList<String> HALOS = new ArrayList<>(List.of(HALOS_ARRAY));
 
     private static ConfigData config = new ConfigData();
@@ -70,8 +70,21 @@ public class HaloConfig {
         config.heightOffset = heightOffset;
     }
 
+    public static boolean isFirstPersonVisible() {
+        return config.firstPersonVisible;
+    }
+
+    public static void setFirstPersonVisible(boolean firstPersonVisible) {
+        config.firstPersonVisible = firstPersonVisible;
+    }
+
+    public static boolean checkIfNone() {
+        return config.haloType.equals("none");
+    }
+
     public static class ConfigData {
         public String haloType = "aris";
+        public boolean firstPersonVisible = true;
         public int angleOffset = 0;
         public double heightOffset = 0;
     }

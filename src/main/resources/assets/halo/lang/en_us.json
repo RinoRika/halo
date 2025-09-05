@@ -6,8 +6,10 @@
   "screen.config.type": "Halo type",
   "screen.config.typeTooltip": "Choose the next halo.",
   "screen.config.angleOffset": "Angle offset",
-  "screen.config.angleOffsetTooltip": "Vertical angle offset. If you want the halo to be behind your head instead of above it, adjust this option appropriately.",
+  "screen.config.angleOffsetTooltip": "Adjust vertical angle offset. If you want the halo to be behind your head instead of above it, adjust this option appropriately.",
   "screen.config.heightOffset": "Height offset",
-  "screen.config.heightOffsetTooltip": "Height offset. This option allows you to adjust the distance of the halo from the top of your head.",
+  "screen.config.heightOffsetTooltip": "Adjust height offset. This option allows you to adjust the distance of the halo from the top of your head.",
+  "screen.config.firstPersonVisibility": "First person visibility",
+  "screen.config.firstPersonVisibilityTooltip": "Toggle whether the halo can be seen in first person.",
   "message.halo.animReloadNotice": "It will take a few seconds to reload the animation, please wait! If the animation does not work, please restart your client."
 }
