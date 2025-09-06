@@ -2,14 +2,9 @@ package cn.stars.halo.model;
 
 import cn.stars.halo.config.HaloConfig;
 import cn.stars.halo.entity.HaloEntity;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.resource.Resource;
-import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.base.GeoRenderState;
-
-import java.util.Optional;
 
 public class HaloModel
 extends GeoModel<HaloEntity> {

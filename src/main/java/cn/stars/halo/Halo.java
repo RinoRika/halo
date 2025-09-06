@@ -13,7 +13,11 @@ import net.minecraft.util.Identifier;
 public class Halo implements ModInitializer {
     public static final RegistryKey<EntityType<?>> HALO_ENTITY_KEY =
             RegistryKey.of(Registries.ENTITY_TYPE.getKey(), Identifier.of("halo", "halo")); // 游戏内实体id: halo:halo
-    public static final EntityType<HaloEntity> HALO_ENTITY = EntityType.Builder.create(HaloEntity::new, SpawnGroup.MISC).dimensions(0.5f, 0.5f).build(HALO_ENTITY_KEY);
+    public static final EntityType<HaloEntity> HALO_ENTITY = EntityType.Builder.create(HaloEntity::new, SpawnGroup.MISC)
+            .dimensions(0.5f, 0.5f)
+            .disableSummon()
+            .maxTrackingRange(114514)
+            .build(HALO_ENTITY_KEY);
 
     @Override
     public void onInitialize() {

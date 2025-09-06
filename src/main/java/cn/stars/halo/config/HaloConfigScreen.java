@@ -1,4 +1,5 @@
 package cn.stars.halo.config;
+
 import cn.stars.halo.HaloCore;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -8,7 +9,6 @@ import net.minecraft.client.gui.widget.SliderWidget;
 import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.text.Text;
 
-import java.awt.*;
 import java.time.Duration;
 
 public class HaloConfigScreen extends Screen {
@@ -27,7 +27,7 @@ public class HaloConfigScreen extends Screen {
         int x = (this.width - buttonWidth) / 2;
         int y = (this.height - buttonHeight) / 2;
 
-        ButtonWidget toggleButton = ButtonWidget.builder(Text.translatable("screen.config.type").append(": " + HaloConfig.getHaloType()), button -> {
+        ButtonWidget toggleButton = ButtonWidget.builder(Text.translatable("screen.config.type").append(": ").append(HaloCore.translateCharacterName(HaloConfig.getHaloType())), button -> {
             String currentType = HaloConfig.getHaloType();
             int index = HaloConfig.HALOS.indexOf(currentType);
             if (index == HaloConfig.HALOS.size() - 1) {
@@ -37,7 +37,7 @@ public class HaloConfigScreen extends Screen {
             }
             String newType = HaloConfig.HALOS.get(index);
             HaloConfig.setHaloType(newType);
-            button.setMessage(Text.translatable("screen.config.type").append(": " + HaloConfig.getHaloType()));
+            button.setMessage(Text.translatable("screen.config.type").append(": ").append(HaloCore.translateCharacterName(HaloConfig.getHaloType())));
         }).dimensions(x, y - 60, buttonWidth, buttonHeight).tooltip(Tooltip.of(Text.translatable("screen.config.typeTooltip"))).build();
 
         ButtonWidget firstPersonVisibleButton = ButtonWidget.builder(Text.translatable("screen.config.firstPersonVisibility").append(": " + HaloConfig.isFirstPersonVisible()), button -> {

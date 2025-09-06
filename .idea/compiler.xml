@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="21" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-AoutRefMapFile=D:\JavaProjects\halo\build\classes\java\client\client-halo-refmap.json -AdefaultObfuscationEnv=named:intermediary -Aquiet=true -AoutMapFileNamedIntermediary=D:\JavaProjects\halo\build\loom-cache\mixin-map-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.client.tiny -AinMapFileNamedIntermediary=C:\Users\Stars\.gradle\caches\fabric-loom\1.21.8\net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2\mappings.tiny" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="halo.main" options="-AoutRefMapFile=D:\JavaProjects\halo\build\classes\java\main\halo-refmap.json -AdefaultObfuscationEnv=named:intermediary -Aquiet=true -AoutMapFileNamedIntermediary=D:\JavaProjects\halo\build\loom-cache\mixin-map-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.main.tiny -AinMapFileNamedIntermediary=C:\Users\Stars\.gradle\caches\fabric-loom\1.21.8\net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2\mappings.tiny" />
+      <module name="halo.test" options="-AoutRefMapFile=D:\JavaProjects\halo\build\classes\java\test\test-halo-refmap.json -AdefaultObfuscationEnv=named:intermediary -Aquiet=true -AoutMapFileNamedIntermediary=D:\JavaProjects\halo\build\loom-cache\mixin-map-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.test.tiny -AinMapFileNamedIntermediary=C:\Users\Stars\.gradle\caches\fabric-loom\1.21.8\net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2\mappings.tiny" />
+    </option>
+  </component>
+</project>

@@ -1,6 +1,7 @@
 package cn.stars.halo;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +11,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class HaloCore {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
-    public static String version = "v1.1.0";
+    public static String version = "v1.2.0";
     public static Logger logger = LogManager.getLogger("Halo");
     public static final String prefix = "§f[§b§lHalo§f] ";
 
@@ -24,5 +25,9 @@ public class HaloCore {
         if (mc.player != null) {
             mc.player.sendMessage(Text.empty().append(prefix).append(Text.translatable(msg)), false);
         }
+    }
+
+    public static MutableText translateCharacterName(String s) {
+        return Text.translatable("character.name." + s);
     }
 }

@@ -34,7 +34,6 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
     @Override
     public void render(R renderState, MatrixStack poseStack, VertexConsumerProvider bufferSource, int packedLight) {
         if (HaloConfig.checkIfNone()) return;
-
         MinecraftClient minecraft = MinecraftClient.getInstance();
         ClientPlayerEntity player = minecraft.player;
 
@@ -44,7 +43,7 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
             poseStack.translate(0.0D, -24 / 16.0, 0.0D);
             poseStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-playerYaw));
 
-            RenderUtil.doXRotationWithCompensation(poseStack, 1.8f, 1.5f, HaloConfig.getAngleOffset());
+            if (HaloConfig.getAngleOffset() != 0) RenderUtil.doXRotationWithCompensation(poseStack, 1.8f, 1.5f, HaloConfig.getAngleOffset());
 
             poseStack.translate(0.0D, HaloConfig.getHeightOffset() / 16.0, 0.0D);
 
@@ -53,7 +52,6 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
                 RenderUtil.doXRotationWithCompensation(poseStack, 2.5f, 2.25f, -90);
             } */
         }
-
         super.render(renderState, poseStack, bufferSource, packedLight);
     }
 
@@ -62,5 +60,4 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
         PlayerEntity player = entity.trackedPlayer;
         return !player.isInvisible() && !player.isDead() && !player.isSpectator() && !player.isSleeping() && (HaloConfig.isFirstPersonVisible() || MinecraftClient.getInstance().gameRenderer.getCamera().isThirdPerson());
     }
-
 }

@@ -1,6 +1,8 @@
 # 项目排除路径
+/.idea/
 /.gradle/
 /build/
 /out/
 /out/client/classes/
 /out/production/classes/
+/run/

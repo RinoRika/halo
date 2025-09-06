@@ -10,19 +10,10 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.pathing.EntityNavigation;
-import net.minecraft.entity.ai.pathing.MobNavigation;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
 import org.lwjgl.glfw.GLFW;
 
 public class HaloClient implements ClientModInitializer {
@@ -63,7 +54,7 @@ public class HaloClient implements ClientModInitializer {
 
             ClientWorld clientWorld = player.clientWorld;
 
-            if (clientHalo == null || !clientHalo.isAlive()) {
+            if (clientHalo == null || !clientHalo.isAlive() || clientHalo.isRemoved()) {
                 clientHalo = new HaloEntity(Halo.HALO_ENTITY, clientWorld);
                 clientHalo.setTrackedPlayer(player);
                 clientWorld.addEntity(clientHalo);
