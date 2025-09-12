@@ -22,12 +22,14 @@ import java.util.List;
 public class HaloEntity extends PathAwareEntity implements GeoAnimatable {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public PlayerEntity trackedPlayer;
+    public boolean shouldUpdate;
 
     public HaloEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
         this.noClip = true;
         this.setInvulnerable(true);
         this.setNoGravity(true);
+        this.shouldUpdate = true;
         trackedPlayer = MinecraftClient.getInstance().player;
     }
 
@@ -57,9 +59,11 @@ public class HaloEntity extends PathAwareEntity implements GeoAnimatable {
                 this.discard();
                 return;
             }
-            this.setPos(this.trackedPlayer.getX(), this.trackedPlayer.getEyeY() - 1.5f, this.trackedPlayer.getZ());
-            this.setAngles(this.trackedPlayer.getYaw(), this.trackedPlayer.getPitch());
-            this.setVelocity(this.trackedPlayer.getVelocity());
+            if (this.shouldUpdate) {
+                this.setPos(this.trackedPlayer.getX(), this.trackedPlayer.getEyeY() - 1.5f, this.trackedPlayer.getZ());
+                this.setAngles(this.trackedPlayer.getYaw(), this.trackedPlayer.getPitch());
+                this.setVelocity(this.trackedPlayer.getVelocity());
+            }
         }
     }
 

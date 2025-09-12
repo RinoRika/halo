@@ -1,6 +1,7 @@
 package cn.stars.halo.renderer;
 
 import cn.stars.halo.config.HaloConfig;
+import cn.stars.halo.config.HaloConfigScreen;
 import cn.stars.halo.entity.HaloEntity;
 import cn.stars.halo.model.HaloModel;
 import cn.stars.halo.util.RenderUtil;
@@ -37,7 +38,7 @@ public class HaloRenderer<R extends LivingEntityRenderState & GeoRenderState> ex
         MinecraftClient minecraft = MinecraftClient.getInstance();
         ClientPlayerEntity player = minecraft.player;
 
-        if (player != null) {
+        if (player != null && HaloConfigScreen.shouldUpdate) {
             // 光环跟随玩家视角旋转
             float playerYaw = player.getYaw();
             poseStack.translate(0.0D, -24 / 16.0, 0.0D);

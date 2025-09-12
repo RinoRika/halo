@@ -4,7 +4,7 @@
   "screen.config.title": "光环配置",
   "screen.config.subtitle": "更改光环类型",
   "screen.config.type": "光环类型",
-  "screen.config.typeTooltip": "选择下一个光环.",
+  "screen.config.typeTooltip": "选择你想要的光环.\n(按SHIFT/CTRL/ALT选择前一个光环.)",
   "screen.config.angleOffset": "角度偏移",
   "screen.config.angleOffsetTooltip": "修改垂直方向角度的偏移,如果你希望光环在你的头后而不是头顶,适当调整该选项.",
   "screen.config.heightOffset": "高度偏移",
@@ -15,6 +15,7 @@
 
   "character.name.none": "无",
   "character.name.aris": "爱丽丝",
+  "character.name.arona": "阿罗娜",
   "character.name.aru": "爱露",
   "character.name.azusa": "梓",
   "character.name.hanako": "花子",
@@ -31,8 +32,10 @@
   "character.name.miku": "初音",
   "character.name.momoi": "小桃",
   "character.name.noa": "诺亚",
+  "character.name.plana": "普拉娜",
   "character.name.serina": "芹娜",
   "character.name.shiroko": "白子",
+  "character.name.shiroko_terror": "白子*恐怖",
   "character.name.tsurugi": "鹤城",
   "character.name.yuuka": "优香"
 }

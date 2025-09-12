@@ -68,9 +68,15 @@ public class HaloClient implements ClientModInitializer {
                 }
                 // 更新光环实体位置
                 // 踩坑: 不要用updatePositionAndAngles(),他会重置实体的碰撞箱,导致玩家无法交互
-                clientHalo.setPos(player.getX(), player.getEyeY() - 0.2f, player.getZ());
-                clientHalo.setAngles(player.getYaw(), player.getPitch());
-                clientHalo.setVelocity(player.getVelocity());
+                if (clientHalo.shouldUpdate) {
+                    if (HaloConfigScreen.shouldUpdate) {
+                        clientHalo.setPos(player.getX(), player.getEyeY() - 0.2f, player.getZ());
+                        clientHalo.setAngles(player.getYaw(), player.getPitch());
+                        clientHalo.setVelocity(player.getVelocity());
+                    } else {
+                        this.removeHalo();
+                    }
+                }
             }
         });
     }

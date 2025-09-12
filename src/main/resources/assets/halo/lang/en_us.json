@@ -4,7 +4,7 @@
   "screen.config.title": "Halo configuration",
   "screen.config.subtitle": "Change halo type",
   "screen.config.type": "Halo type",
-  "screen.config.typeTooltip": "Choose the next halo.",
+  "screen.config.typeTooltip": "Choose the halo you want.\n(Press SHIFT/CTRL/ALT and click to choose the previous one.)",
   "screen.config.angleOffset": "Angle offset",
   "screen.config.angleOffsetTooltip": "Adjust vertical angle offset. If you want the halo to be behind your head instead of above it, adjust this option appropriately.",
   "screen.config.heightOffset": "Height offset",
@@ -15,6 +15,7 @@
 
   "character.name.none": "None",
   "character.name.aris": "Aris",
+  "character.name.arona": "Arona",
   "character.name.aru": "Aru",
   "character.name.azusa": "Azusa",
   "character.name.hanako": "Hanako",
@@ -31,8 +32,10 @@
   "character.name.miku": "Miku",
   "character.name.momoi": "Momoi",
   "character.name.noa": "Noa",
+  "character.name.plana": "Plana",
   "character.name.serina": "Serina",
   "character.name.shiroko": "Shiroko",
+  "character.name.shiroko_terror": "Shiroko*Terror",
   "character.name.tsurugi": "Tsurugi",
   "character.name.yuuka": "Yuuka"
 }
